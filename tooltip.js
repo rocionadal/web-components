@@ -7,6 +7,14 @@ class Tooltip extends HTMLElement {
     // const template = document.querySelector('#tooltip-template');
     // this.shadowRoot.appendChild(template.content.cloneNode(true));
     this,this.shadowRoot.innerHTML = `
+      <style>
+        div {
+          background-color: black;
+          color: white;
+          position: absolute;
+          z-index: 10
+        }
+      </style>
       <slot>Slot default text</slot>
       <span> (?)</span>
     `;
@@ -20,6 +28,7 @@ class Tooltip extends HTMLElement {
     tooltipIcon.addEventListener('mouseenter', this._showTooltip.bind(this));
     tooltipIcon.addEventListener('mouseleave', this._hideTooltip.bind(this));
     this.shadowRoot.appendChild(tooltipIcon);
+    this.style.position = 'relative';
   }
 
   _showTooltip() { // to make clear that i will only call this method from inside the class
