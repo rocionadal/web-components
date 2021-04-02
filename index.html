@@ -8,7 +8,15 @@
     <script src="tooltip.js"></script>
 </head>
 <body>
-    <p><rn-tooltip text="Web Components is a set of standards.">Web Components</rn-tooltip>are awesome!</p>
-    <rn-tooltip>Some extra text.</rn-tooltip>
+    <!-- <template id="tooltip-template">
+        <slot>Slot default text</slot><span> (?)</span>
+    </template> -->
+    <p>
+        <rn-tooltip text="Web Components is a set of standards.">
+            Web Components
+        </rn-tooltip>
+        are awesome!
+    </p>
+    <rn-tooltip></rn-tooltip>
 </body>
 </html>

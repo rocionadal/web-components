@@ -4,14 +4,19 @@ class Tooltip extends HTMLElement {
     this._tooltipContainer;
     this._tooltipText = 'Some default text.';
     this.attachShadow({ mode: 'open' });
+    // const template = document.querySelector('#tooltip-template');
+    // this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this,this.shadowRoot.innerHTML = `
+      <slot>Slot default text</slot>
+      <span> (?)</span>
+    `;
   }
   
   connectedCallback() { // DOM initializations
     if (this.hasAttribute('text')) {
       this._tooltipText = this.getAttribute('text');
     }
-    const tooltipIcon = document.createElement('span');
-    tooltipIcon.textContent = ' (?)';
+    const tooltipIcon = this.shadowRoot.querySelector('span');
     tooltipIcon.addEventListener('mouseenter', this._showTooltip.bind(this));
     tooltipIcon.addEventListener('mouseleave', this._hideTooltip.bind(this));
     this.shadowRoot.appendChild(tooltipIcon);
