@@ -46,6 +46,9 @@ class Tooltip extends HTMLElement {
           text-align: center;
           border-radius: 50%;
         }
+        :host {
+          position: relative;
+        }
     </style>
     <slot>Some default</slot>
     <span class="icon">?</span>
@@ -59,7 +62,6 @@ class Tooltip extends HTMLElement {
     this._tooltipIcon = this.shadowRoot.querySelector('span');
     this._tooltipIcon.addEventListener('mouseenter', this._showTooltip.bind(this));
     this._tooltipIcon.addEventListener('mouseleave', this._hideTooltip.bind(this));
-    this.style.position = 'relative';
     this._render();
   }
 
