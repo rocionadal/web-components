@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Web Components</title>
-    <style>
+    <!-- <style>
         * {
           box-sizing: border-box;
         }
@@ -16,19 +16,30 @@
         }
       </style>
     <script src="tooltip.js"></script>
-    <script src="confirm-link.js"></script>
+    <script src="confirm-link.js"></script> -->
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+  
+        body {
+          margin: 2rem;
+          font-family: sans-serif;
+        }
+      </style>
+    <script src="modal.js"></script>
 </head>
 <body>
-    <!-- <template id="tooltip-template">
-        <slot>Slot default text</slot><span> (?)</span>
-    </template> -->
-    <p>
+    <rn-modal></rn-modal>
+    <p>Please confirm your choice.</p>
+    <button>Show Details & Confirm</button>
+    <!-- <p>
         <rn-tooltip class="important" text="Web Components is a set of standards.">
             <span class="highlight">Web Components</span>        
         </rn-tooltip>
         are awesome!
     </p>
     <rn-tooltip></rn-tooltip>
-    <a is="rn-confirm-link" href="https://www.google.com">Google</a>
+    <a is="rn-confirm-link" href="https://www.google.com">Google</a> -->
 </body>
 </html>
