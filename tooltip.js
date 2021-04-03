@@ -6,17 +6,48 @@ class Tooltip extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     // const template = document.querySelector('#tooltip-template');
     // this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this,this.shadowRoot.innerHTML = `
-      <style>
+    this.shadowRoot.innerHTML = `
+    <style>
         div {
+          font-weight: normal;
           background-color: black;
           color: white;
           position: absolute;
-          z-index: 10
+          top: 1.5rem;
+          left: 0.75rem;
+          z-index: 10;
+          padding: 0.15rem;
+          border-radius: 3px;
+          box-shadow: 1px 1px 6px rgba(0,0,0,0.26);
         }
-      </style>
-      <slot>Slot default text</slot>
-      <span> (?)</span>
+
+        :host(.important) {
+          background: var(--color-primary, #ccc);
+          padding: 0.15rem;
+        }
+
+        :host-context(p) {
+          font-weight: bold;
+        }
+
+        .highlight {
+          background-color: red;
+        }
+
+        ::slotted(.highlight) {
+          border-bottom: 1px dotted red;
+        }
+
+        .icon {
+          background: black;
+          color: white;
+          padding: 0.15rem 0.5rem;
+          text-align: center;
+          border-radius: 50%;
+        }
+    </style>
+    <slot>Some default</slot>
+    <span class="icon">?</span>
     `;
   }
   
