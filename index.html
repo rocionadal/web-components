@@ -31,10 +31,23 @@
 </head>
 <body>
     <rn-modal>
+        <h1 slot="title">Please Confirm</h1>
         <p>With your confirmation you agree to pay the full amount!</p>
     </rn-modal>
     <p>Please confirm your choice.</p>
     <button>Show Details & Confirm</button>
+    <script>
+        const confirmButton = document.querySelector('button');
+        const modal = document.querySelector('rn-modal');
+  
+        confirmButton.addEventListener('click', () => {
+          //  modal.setAttribute('opened', '');
+          if (!modal.isOpen) {
+            modal.open();
+            console.log('Opening...');
+          }
+        });
+      </script>
     <!-- <p>
         <rn-tooltip class="important" text="Web Components is a set of standards.">
             <span class="highlight">Web Components</span>        
